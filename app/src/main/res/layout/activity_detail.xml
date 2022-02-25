@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModelDetail"
+            type="com.chainels.application.viewmodel.TimelineDetailViewModel" />
+
+        <variable
+            name="modelDetail"
+            type="com.chainels.application.model.TimeLine" />
+
+        <variable
+            name="activity"
+            type="com.chainels.application.view.DetailActivity" />
+
+        <import type="android.text.Html" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        app:contentPadding="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    <com.google.android.material.circularreveal.CircularRevealRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:id="@+id/relative_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center">
+
+                <ProgressBar
+                    android:id="@+id/Progress"
+                    style="@style/Widget.AppCompat.ProgressBar"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:theme="@style/CircularProgress" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/image_view_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:cropToPadding="true"
+                    android:scaleType="centerCrop"
+                    app:picture="@{modelDetail.channel.image.url}"
+                    app:progress="@{Progress}" />
+
+            </RelativeLayout>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageViewFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative_image"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="5dp"
+                android:adjustViewBounds="true"
+                android:gravity="end|center_horizontal"
+                android:padding="6dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_fav_outline"
+                app:pictureLike="@{modelDetail.is_interested}" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative_image"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="40dp"
+                android:text="@{modelDetail.title}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/black" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_title"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:textColor="@color/blackAlpha" />
+
+        </com.google.android.material.circularreveal.CircularRevealRelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
