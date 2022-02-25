@@ -26,5 +26,7 @@ Based on mvvm architecture and repository pattern.
 
 ## Note
 1 UI is same as given Screens
+
 2 Total timeline received from id is approx 20.Coroutines
+
 3 If any api parameters are need be change then do let me know.
