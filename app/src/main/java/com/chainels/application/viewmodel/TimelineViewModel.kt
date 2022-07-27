@@ -10,14 +10,13 @@ import com.chainels.application.api.AppConstant
 import com.chainels.application.model.TimeLine
 import com.chainels.application.repositories.TimelineRepository
 import kotlinx.coroutines.launch
-import java.net.URL
 
 class TimelineViewModel(application: Application) : AndroidViewModel(application),
     TimelineAdapter.ItemListener {
 
-    private var listTimeline = MutableLiveData<ArrayList<TimeLine>>()
-    private var listTimelineLoadMore = MutableLiveData<ArrayList<TimeLine>>()
-    private var timelineRepository: TimelineRepository? = TimelineRepository.getInstance(application)
+    var listTimeline = MutableLiveData<ArrayList<TimeLine>>()
+    var listTimelineLoadMore = MutableLiveData<ArrayList<TimeLine>>()
+    var timelineRepository: TimelineRepository? = TimelineRepository.getInstance(application)
     var itemFavoriteClick = MutableLiveData<Long>()
     var itemDetailClick = MutableLiveData<Long>()
     var currentPosition: Int = 0

@@ -13,7 +13,7 @@ import com.chainels.application.databinding.ActivityMainBinding
 import com.chainels.application.model.TimeLine
 import com.chainels.application.utils.CheckValidation
 import com.chainels.application.viewmodel.TimelineViewModel
-import java.net.URL
+
 
 class MainActivity : AppCompatActivity() {
 
